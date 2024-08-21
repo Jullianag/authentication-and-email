@@ -1,4 +1,4 @@
-package org.meuprojeto.authenticationandemail.services.exceptions;
+package org.meuprojeto.authenticationandemail.controller.exceptions;
 
 import java.time.Instant;
 
