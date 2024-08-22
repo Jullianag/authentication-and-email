@@ -3,6 +3,7 @@ package org.meuprojeto.authenticationandemail.services.validation;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+import org.meuprojeto.authenticationandemail.dtos.UserUpdateDTO;
 import org.meuprojeto.authenticationandemail.entities.User;
 import org.meuprojeto.authenticationandemail.repositories.UserRepository;
 import org.meuprojeto.authenticationandemail.controller.exceptions.FieldMessage;
