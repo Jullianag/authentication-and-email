@@ -2,6 +2,7 @@ package org.meuprojeto.authenticationandemail.controller.exceptions;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.meuprojeto.authenticationandemail.services.exceptions.DatabaseException;
+import org.meuprojeto.authenticationandemail.services.exceptions.EmailException;
 import org.meuprojeto.authenticationandemail.services.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,5 +39,12 @@ public class ResourceExceptionHandler {
             validationError.addError(f.getField(), f.getDefaultMessage());
         }
         return ResponseEntity.status(status).body(validationError);
+    }
+
+    @ExceptionHandler(EmailException.class)
+    public ResponseEntity<StandardError> emailSend(EmailException e, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        StandardError standardError = new StandardError(Instant.now(), status.value(), "Email exception", e.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(status).body(standardError);
     }
 }
