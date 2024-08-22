@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.meuprojeto.authenticationandemail.dtos.UserDTO;
 import org.meuprojeto.authenticationandemail.dtos.UserInsertDTO;
 import org.meuprojeto.authenticationandemail.dtos.UserUpdateDTO;
+import org.meuprojeto.authenticationandemail.services.AuthService;
 import org.meuprojeto.authenticationandemail.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')")
     @GetMapping

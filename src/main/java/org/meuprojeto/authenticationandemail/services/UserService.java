@@ -34,10 +34,10 @@ public class UserService implements UserDetailsService {
     private RoleRepository roleRepository;
 
     @Autowired
-    private AuthService authService;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private AuthService authService;
 
 
     @Transactional(readOnly = true)
@@ -94,6 +94,12 @@ public class UserService implements UserDetailsService {
         }
     }
 
+    @Transactional(readOnly = true)
+    public UserDTO findMe() {
+        User entity = authService.authenticated();
+        return new UserDTO(entity);
+    }
+
     private void copyDtoToEntity(UserDTO dto, User entity) {
         entity.setFirstName(dto.getFirstName());
         entity.setLastName(dto.getLastName());
@@ -104,12 +110,6 @@ public class UserService implements UserDetailsService {
             Role role = roleRepository.getReferenceById(roleDTO.getId());
             entity.getRoles().add(role);
         }
-    }
-
-    @Transactional(readOnly = true)
-    public UserDTO findMe() {
-        User entity = authService.authenticated();
-        return new UserDTO(entity);
     }
 
 

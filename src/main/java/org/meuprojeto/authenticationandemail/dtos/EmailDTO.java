@@ -1,8 +1,5 @@
 package org.meuprojeto.authenticationandemail.dtos;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-
 public class EmailDTO {
 
     private String fromEmail;
@@ -12,6 +9,7 @@ public class EmailDTO {
     private String subject;
     private String body;
     private String contentType;
+    private String email;
 
     public EmailDTO() {
     }
@@ -24,6 +22,10 @@ public class EmailDTO {
         this.subject = subject;
         this.body = body;
         this.contentType = contentType;
+    }
+
+    public EmailDTO(String email) {
+        this.email = email;
     }
 
     public String getFromEmail() {
@@ -80,5 +82,13 @@ public class EmailDTO {
 
     public void setContentType(String contentType) {
         this.contentType = contentType;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

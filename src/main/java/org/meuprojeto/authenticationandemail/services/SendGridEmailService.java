@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
+@Service
 public class SendGridEmailService implements EmailService {
 
     private Logger LOG = LoggerFactory.getLogger(SendGridEmailService.class);

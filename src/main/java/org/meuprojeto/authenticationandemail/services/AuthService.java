@@ -16,6 +16,7 @@ public class AuthService {
     @Autowired
     private CustomUserUtil customUserUtil;
 
+
     protected User authenticated() {
         try {
             String username = customUserUtil.getLoggerUsername();
@@ -25,4 +26,5 @@ public class AuthService {
             throw new UsernameNotFoundException("Email não encontrado");
         }
     }
+
 }
