@@ -24,3 +24,12 @@ tratamento personalizado de exceções.
 
 ## Banco de dados:
 - Banco de dados: teste H2
+
+## Back end
+Pré-requisitos: Java 21
+
+# Autor
+
+Julliana Gnecco
+
+https://www.linkedin.com/in/julliana-gnecco/
